@@ -26,8 +26,7 @@ const HeroContent = () => {
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           {/* Texto original: Fullstack Developer Portfolio */}
           <h1 className="Welcome-text text-[13px]">
-            Portafolio de Desarrollador Fullstack // Ricardo Krm{" "}
-            {/* Traducido y añadido alias */}
+            Full Stack Developer {/* Traducido y añadido alias */}
           </h1>
         </motion.div>
 
@@ -52,7 +51,7 @@ const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          Soy Ricardo Orellana (Krm), un Ingeniero de Software Full Stack con
+          Soy Ricardo Krm, un Ingeniero de Informatica Full Stack, con
           experiencia en desarrollo Web, Móvil y de Software. Explora mis
           proyectos y habilidades.
           {/* Traducido y añadido nombre/alias */}
