@@ -1,15 +1,18 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter } from "next/font/google"; // Asumo que esta ruta es correcta
 import "./globals.css";
-import StarsCanvas from "@/components/main/StarBackground";
+// Importamos StarsCanvas
+import StarsCanvas from "@/components/main/StarBackground"; // Importado correctamente
+// Mantenemos las otras importaciones
 import Navbar from "@/components/main/Navbar";
-import Footer from "@/components/main/Footer";
+import Footer from "@/components/main/Footer"; // Mantenemos la importación por si acaso, aunque no se renderiza aquí
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Space Portfolio",
-  description: "This is my portfolio",
+  description: "Este es mi portafolio", // O mantén la descripción que prefieras
 };
 
 export default function RootLayout({
@@ -18,14 +21,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="es">
+      {" "}
+      {/* Cambiado lang a español si quieres */}
       <body
         className={`${inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
       >
-        <StarsCanvas />
+        {/* === ¡AÑADIDA LA CLASE pointer-events-none AQUÍ! === */}
+        {/* Esto hará que el canvas de las estrellas no bloquee los clics */}
+        {/* Requiere que StarBackground.tsx acepte la prop className */}
+        <StarsCanvas className="pointer-events-none" />{" "}
+        {/* <-- CLASE AÑADIDA */}
         <Navbar />
-        {children}
-        <Footer />
+        {/* {children} renderiza el contenido de app/page.tsx, que ahora incluye el Footer */}
+        {children}{" "}
+        {/* <-- Aquí es donde se renderiza el contenido de tu página */}
+        {/* La renderización duplicada del Footer fue eliminada */}
+        {/* <Footer /> */}
       </body>
     </html>
   );

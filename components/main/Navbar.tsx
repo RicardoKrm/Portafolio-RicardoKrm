@@ -1,74 +1,65 @@
-import { Socials } from "@/constants"; // Importa los datos de redes sociales
-import Image from "next/image";
+import { Socials } from "@/constants"; // Mantenemos la importación por si acaso, aunque ya no se mapea aquí
+import Image from "next/image"; // Mantenemos la importación por si acaso, aunque ya no se mapea aquí
 import React from "react";
 
 const Navbar = () => {
   return (
     // Contenedor principal de la barra de navegación
-    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10">
+    // Ajuste de padding horizontal: px-4 en móvil, md:px-10 para medium screens and up
+    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-4 md:px-10">
       {/* Contenedor interior para alinear elementos */}
-      <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
-        {/* Enlace del logo (a la sección Sobre mí) */}
-        <a
-          href="#about-me"
-          className="h-auto w-auto flex flex-row items-center"
-        >
-          {/* Imagen del logo */}
-          {/* Asegúrate de que /NavLogo.png existe en tu carpeta public */}
-          <Image
-            src="/NavLogo.png"
-            alt="logo"
-            width={70}
-            height={70}
-            className="cursor-pointer hover:animate-slowspin"
-          />
-          {/* Nombre/Alias junto al logo (visible en pantallas medianas y grandes) */}
-          <span className="font-bold ml-[10px] hidden md:block text-gray-300">
-            RicardoKrm
-          </span>
-        </a>
-
-        {/* Enlaces de navegación interna (Sobre mi, Proyectos, Habilidades) */}
-        {/* Este bloque renderiza los enlaces cliqueables para navegar entre secciones */}
-        <div className="w-[500px] h-full flex flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
-            {/* Enlace a Sobre mi */}
-            <a href="#about-me" className="cursor-pointer">
-              Sobre mi
+      {/* --- CAMBIADO justify-between A justify-center --- */}
+      {/* --- Eliminado mr-auto del placeholder --- */}
+      <div className="w-full h-full flex flex-row items-center justify-center m-auto px-[10px]">
+        {" "}
+        {/* <-- CLASE MODIFICADA justify-center */}
+        {/* Placeholder vacío para mantener la posición del layout en el flexbox */}
+        {/* Eliminada clase mr-auto */}
+        <div className="h-auto w-auto flex flex-row items-center">
+          {" "}
+          {/* <-- CLASE MODIFICADA (sin mr-auto) */}
+          {/* Contenido (Logo y Nombre) eliminado según lo solicitado */}
+        </div>
+        {/* Enlaces de navegación interna (Sobre mi, Proyectos, Habilidades, Contacto) */}
+        {/* Este div (el siguiente elemento en el flexbox) debería mantenerse centrado con justify-center en el padre */}
+        {/* Ajuste de anchura: w-auto en móvil, w-[500px] en pantallas medianas y grandes */}
+        {/* Este contenedor ya no necesita md:mr-20 si no hay nada a la derecha para espaciar */}
+        <div className="w-auto md:w-[500px] h-full flex flex-row items-center justify-between">
+          {" "}
+          {/* <-- CLASE MODIFICADA (sin md:mr-20) */}
+          {/* Ajuste de espaciado interno: justify-around en móvil, justify-between en md+, y gap-x-4 */}
+          {/* Todos los enlaces internos tienen whitespace-nowrap */}
+          <div className="flex items-center justify-around md:justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200 gap-x-4">
+            {/* Enlace a Sobre mi - Añadida la clase whitespace-nowrap */}
+            <a href="#about-me" className="cursor-pointer whitespace-nowrap">
+              {" "}
+              {/* CLASE AÑADIDA AQUÍ */}
+              Sobre mi {/* Mantenemos el texto en español */}
             </a>
-            {/* Enlace a Proyectos */}
-            <a href="#projects" className="cursor-pointer">
+            {/* Enlace a Proyectos - Añadida la clase whitespace-nowrap */}
+            <a href="#projects" className="cursor-pointer whitespace-nowrap">
+              {" "}
+              {/* CLASE AÑADIDA AQUÍ */}
               Proyectos
             </a>
-            {/* Enlace a Habilidades */}
-            <a href="#skills" className="cursor-pointer">
+            {/* Enlace a Habilidades - Añadida la clase whitespace-nowrap */}
+            <a href="#skills" className="cursor-pointer whitespace-nowrap">
+              {" "}
+              {/* CLASE AÑADIDA AQUÍ */}
               Habilidades
             </a>
           </div>
         </div>
-
-        {/* Íconos de Redes Sociales */}
-        {/* Mapea sobre los datos de Socials (desde constants/index.ts) */}
-        <div className="flex flex-row gap-5">
+        {/* Íconos de Redes Sociales - BLOQUE COMPLETO ELIMINADO */}
+        {/*
+        <div className="flex flex-row gap-5 ml-auto">
           {Socials.map((social) => (
-            // ¡Cada ícono está envuelto en una etiqueta <a> para que sea un enlace!
-            <a
-              key={social.name} // Clave única para cada elemento en la lista
-              href={social.link} // <-- URL definida en constants/index.ts
-              target="_blank" // <-- Abre el enlace en una nueva pestaña del navegador
-              rel="noopener noreferrer" // <-- Recomendado por seguridad al usar target="_blank"
-            >
-              {/* Imagen del ícono social */}
-              {/* La ruta (social.src) viene de constants/index.ts, ej: /github.svg */}
-              <Image
-                src={social.src}
-                alt={social.name} // Texto alternativo desde constants/index.ts
-                width={24}
-                height={24}
-              />
+            <a ... >
+              <Image ... />
             </a>
           ))}
         </div>
+        */}
       </div>
     </div>
   );
