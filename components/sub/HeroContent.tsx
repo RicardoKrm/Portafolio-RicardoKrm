@@ -73,7 +73,7 @@ const HeroContent = () => {
             className="px-6 py-3 border border-[#7042f861] text-gray-200 rounded-full cursor-pointer hover:bg-[#7042f861]/20 text-lg font-bold whitespace-nowrap" // Estilo visual del botón
             aria-label="Ver mi perfil de GitHub" // Etiqueta de accesibilidad
           >
-            Ver GitHub {/* Texto del botón */}
+            GitHub {/* Texto del botón */}
           </a>
 
           {/* Botón para LinkedIn */}
@@ -86,7 +86,7 @@ const HeroContent = () => {
             className="px-6 py-3 border border-[#7042f861] text-gray-200 rounded-full cursor-pointer hover:bg-[#7042f861]/20 text-lg font-bold whitespace-nowrap" // Estilo visual del botón
             aria-label="Ver mi perfil de LinkedIn" // Etiqueta de accesibilidad
           >
-            Ver LinkedIn {/* Texto del botón */}
+            LinkedIn {/* Texto del botón */}
           </a>
         </motion.div>
         {/* === FIN SECCIÓN DE BOTONES SOCIALES === */}
